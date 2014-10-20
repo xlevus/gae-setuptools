@@ -39,7 +39,6 @@ class InstallGaeSDK(install):
         print "Verifying download..."
         with open(gae_zip, 'rb') as fp:
             sha1sum = hashlib.sha1(fp.read()).hexdigest()
-            print fp.tell()
         assert sha1sum == self.GAE_SHA1SUM
 
     def _decompress(self, gae_zip):
