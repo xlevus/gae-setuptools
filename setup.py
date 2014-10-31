@@ -12,7 +12,7 @@ import zipfile
 class InstallGaeSDK(install):
     GAE_VERSION = '1.9.13'
     GAE_SHA1SUM = '05166691108caddc4d4cfdf683cfc4748df197a2'
-    SDK_FILE = 'google_appengine_1.9.13.zip'
+    SDK_FILE = 'google_appengine_1.9.14.zip'
     GAE_URL = (
         'https://storage.googleapis.com/appengine-sdks/featured/' + SDK_FILE)
 
@@ -69,7 +69,7 @@ setup(
     name='gae_setuptools',
     packages=[],    # this must be the same as the name above
     py_modules=['gae_setuptools'],
-    version='1.9.13',
+    version='1.9.14',
     description='Install GAE SDK to a virtualenv with pip',
     author='Chris Targett',
     author_email='chris@xlevus.net',
