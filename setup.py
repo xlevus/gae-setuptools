@@ -1,6 +1,7 @@
 from setuptools import setup
 from setuptools.command.install import install
 
+import stat
 import hashlib
 import os
 import tempfile
@@ -52,6 +53,12 @@ class InstallGaeSDK(install):
             f.write('\nimport gae_setuptools')
         return p
 
+    def _fix_bin(self):
+        for f in ['dev_appserver.py', 'appcfg.py']:
+            path = os.path.join(self.install_lib, 'google_appengine', f)
+            s = os.stat(path)
+            os.chmod(path, s.st_mode | stat.S_IXUSR | stat.S_IXGRP)
+
     def run(self):
         install.run(self)
         tmp_dir = tempfile.mkdtemp()
@@ -60,6 +67,7 @@ class InstallGaeSDK(install):
             self._verify_file(zip_pth)
             self._decompress(zip_pth)
             self._write_pth()
+            self._fix_bin()
         finally:
             print "Cleaning up temp directory {}".format(tmp_dir)
             shutil.rmtree(tmp_dir)
