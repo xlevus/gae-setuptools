@@ -11,9 +11,9 @@ import zipfile
 
 
 class InstallGaeSDK(install):
-    GAE_VERSION = '1.9.24'
-    GAE_SHA1SUM = '8f25f05703ae5855ab49fee55735e8f387b5ba78'
-    SDK_FILE = 'google_appengine_1.9.24.zip'
+    GAE_VERSION = '1.9.38'
+    GAE_SHA1SUM = '666f8de01dcfa1ab91b36744f2888946ca61d9b7'
+    SDK_FILE = 'google_appengine_1.9.38.zip'
     GAE_URL = (
         'https://storage.googleapis.com/appengine-sdks/featured/' + SDK_FILE)
 
